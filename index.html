@@ -8,86 +8,55 @@
 </head>
 <body>
     <div class="container">
-        <h1>My Links</h1>
+        <h1 id="main-title">My Links</h1>
 
-        <div class="category">
-            <h2>Daily Use</h2>
-            <div class="row">
-                <div class="card">
-                    <a href="https://coupon-manager-31086.web.app/" target="_blank">
-                        <img src="thumbnail-coupon.jpg" alt="Coupon Manager">
-                        <div class="title">Coupon Manager</div>
-                    </a>
-                </div>
-                <div class="card">
-                    <a href="https://fatkam2024.github.io/interviewhelper/" target="_blank">
-                        <img src="thumbnail-interview.jpg" alt="Interview Prep">
-                        <div class="title">Interview Prep</div>
-                    </a>
-                </div>
-            </div>
-        </div>
-		
-        <div class="category">
-            <h2>Tools</h2>
-            <div class="row">
-                <div class="card">
-                    <a href="https://fatkam2024.github.io/jpdramatable/" target="_blank">
-                        <img src="thumbnail-jpdrama.jpg" alt="Japanese Drama">
-                        <div class="title">Japanese Drama</div>
-                    </a>
-                </div>
-                <div class="card">
-                    <a href="https://fatkam2024.github.io/olympicsHK/" target="_blank">
-                        <img src="thumbnail-olympics.jpg" alt="2024 Paris Olympics">
-                        <div class="title">2024 Paris Olympics</div>
-                    </a>
-                </div>
-                <div class="card">
-                    <a href="https://fatkam2024.github.io/sqlresult/" target="_blank">
-                        <img src="thumbnail-sql.jpg" alt="SQL Preview">
-                        <div class="title">SQL Preview</div>
-                    </a>
-                </div>
-            </div>
-        </div>
+        <div id="login-container" class="login-container">
+            <h2>Login</h2>
+            <form id="loginForm" onsubmit="return validateLogin()">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
 
-        <div class="category">
-            <h2>Knowledge</h2>
-            <div class="row">
-                <div class="card">
-                    <a href="https://fatkam2024.github.io/financeproducts/" target="_blank">
-                        <img src="thumbnail-finance.jpg" alt="Financial Products">
-                        <div class="title">Financial Products</div>
-                    </a>
-                </div>
-                <div class="card">
-                    <a href="https://fatkam2024.github.io/crmguide/" target="_blank">
-                        <img src="thumbnail-crm.jpg" alt="CRM Guide">
-                        <div class="title">CRM Guide</div>
-                    </a>
-                </div>
-                <div class="card">
-                    <a href="https://fatkam2024.github.io/loyaltyguide/" target="_blank">
-                        <img src="thumbnail-loyalty.jpg" alt="Loyalty Program Guide">
-                        <div class="title">Loyalty Program Guide</div>
-                    </a>
-                </div>
-                <div class="card">
-                    <a href="https://fatkam2024.github.io/powerbiguide/" target="_blank">
-                        <img src="thumbnail-powerbi.jpg" alt="PowerBI Guide">
-                        <div class="title">PowerBI Guide</div>
-                    </a>
-                </div>
-                <div class="card">
-                    <a href="https://fatkam2024.github.io/pmpguide/" target="_blank">
-                        <img src="thumbnail-pmp.jpg" alt="PMP Training">
-                        <div class="title">PMP Training</div>
-                    </a>
-                </div>
-            </div>
-        </div>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
 
+                <button type="submit">Login</button>
+            </form>
+            <p id="errorMessage" style="color:red; display:none;">Invalid username or password.</p>
+        </div>
     </div>
+
+    <script>
+        // Check if credentials are saved in localStorage
+        window.onload = function() {
+            const savedUsername = localStorage.getItem('username');
+            const savedPassword = localStorage.getItem('password');
+
+            if (savedUsername && savedPassword) {
+                document.getElementById('username').value = savedUsername;
+                document.getElementById('password').value = savedPassword;
+                validateLogin();
+            }
+        };
+
+        function validateLogin() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const errorMessage = document.getElementById('errorMessage');
+
+            if (username === 'ck2024' && password === 'ck2024#') {
+                // Save credentials to localStorage
+                localStorage.setItem('username', username);
+                localStorage.setItem('password', password);
+
+                // Redirect to main.html
+                window.location.href = 'main.html';
+                return false;
+            } else {
+                // Invalid login
+                errorMessage.style.display = 'block';
+                return false;
+            }
+        }
+    </script>
 </body>
 </html>
