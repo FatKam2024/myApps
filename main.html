@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,10 +31,10 @@
                         <img src="thumbnail-cashback.jpg" alt="CashBack">
                         <div class="title">CashBack Form</div>
                     </a>
-                </div>	
+                </div>    
             </div>
         </div>
-		
+        
         <div class="category">
             <h2>Tools</h2>
             <div class="row">
@@ -97,9 +98,70 @@
                         <div class="title">Salesforce Vlocity</div>
                     </a>
                 </div>
+                <div class="card">
+                    <a href="https://fatkam2024.github.io/powerbiguide/" target="_blank">
+                        <img src="thumbnail-powerbi.jpg" alt="PowerBI Guide">
+                        <div class="title">PowerBI Guide</div>
+                    </a>
+                </div>
+                <div class="card">
+                    <a href="https://fatkam2024.github.io/pmpguide/" target="_blank">
+                        <img src="thumbnail-pmp.jpg" alt="PMP Training">
+                        <div class="title">PMP Training</div>
+                    </a>
+                </div>
+                <div class="card">
+                    <a href="https://fatkam2024.github.io/sfvlocity/" target="_blank">
+                        <img src="thumbnail-vlocity.jpg" alt="Salesforce Vlocity">
+                        <div class="title">Salesforce Vlocity</div>
+                    </a>
+                </div>
             </div>
         </div>
 
+        <div class="category">
+            <h2>Beginner Learning</h2>
+            <div class="row">
+                <div class="card">
+                    <a href="https://fatkam2024.github.io/apilearning/" target="_blank">
+                        <img src="thumbnail-api.jpg" alt="API Foundamentals">
+                        <div class="title">API Foundamentals</div>
+                    </a>
+                </div>
+                <div class="card">
+                    <a href="https://fatkam2024.github.io/pmpguide/" target="_blank">
+                        <img src="thumbnail-pmp.jpg" alt="PMP Training">
+                        <div class="title">PMP Training</div>
+                    </a>
+                </div>
+                <div class="card">
+                    <a href="https://fatkam2024.github.io/sfvlocity/" target="_blank">
+                        <img src="thumbnail-vlocity.jpg" alt="Salesforce Vlocity">
+                        <div class="title">Salesforce Vlocity</div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <button onclick="logout()">Logout</button>
+
     </div>
+
+    <script>
+        // main.html - Ensure user is authenticated
+        window.onload = function() {
+            const authToken = localStorage.getItem('authToken');
+            if (!authToken) {
+                // Redirect back to login page if not authenticated
+                window.location.href = 'index.html';
+            }
+        };
+
+        function logout() {
+            // Remove authentication token
+            localStorage.removeItem('authToken');
+            // Redirect to login page
+            window.location.href = 'index.html';
+        }
+    </script>
 </body>
 </html>
